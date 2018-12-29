@@ -9,9 +9,18 @@ class Search extends Component {
         books: []
     }
 
-    onSearch = (evt) => {
+    componentDidMount() {
+        BooksAPI.getAll()
+            .then(books => {
+                this.setState({
+                    books
+                })
+            })
+    }
+
+    onSearch = async evt => {
         this.setState({query: evt.target.value});
-        BooksAPI.search(this.state.query)
+        await BooksAPI.search(this.state.query)
                 .then(response => {
                     this.setState( {
                         books: response
