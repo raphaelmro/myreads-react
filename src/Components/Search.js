@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import * as BooksAPI from '../BooksAPI';
 import {Link} from 'react-router-dom';
-import Book from "./Book";
+import ListBooks from "./ListBooks";
 
 class Search extends Component {
     state = {
-        query: '',
         books: []
     }
 
@@ -18,19 +17,17 @@ class Search extends Component {
             })
     }
 
-    onSearch = async evt => {
-        this.setState({query: evt.target.value});
-        await BooksAPI.search(this.state.query)
-                .then(response => {
-                    this.setState( {
-                        books: response
-                    })
+    onSearch = evt => {
+        if (evt.target.value === '') return false;
+        BooksAPI.search(evt.target.value)
+            .then(response =>
+                this.setState( {
+                    books: response
                 })
-        console.log(this.state.books)
+            ).catch(err => console.log(err))
     }
 
     render() {
-        const { query, books } = this.state
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -41,21 +38,11 @@ class Search extends Component {
                         <input type="text"
                                placeholder="Search by title or author"
                                onChange={this.onSearch}
-                               value={query}
                         />
                     </div>
                 </div>
                 <div className="search-books-results">
-                    <ol className="books-grid">
-                        {books && books.map(book => {
-                            return <li>
-                                <Book image={book.imageLinks.smallThumbnail}
-                                  title={book.title}
-                                  author={book.authors}
-                                />
-                            </li>
-                        })}
-                    </ol>
+                   <ListBooks books={this.state.books} />
                 </div>
             </div>
         );
