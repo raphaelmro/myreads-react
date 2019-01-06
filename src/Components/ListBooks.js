@@ -6,7 +6,7 @@ const ListBooks = ({books}) => {
         <div>
             <ol className="books-grid">
                 {books.length > 0 ? books.map(book => {
-                    return <li>
+                    return <li key={book.id}>
                         <Book image={book.imageLinks.smallThumbnail}
                               title={book.title}
                               author={book.authors}
