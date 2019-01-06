@@ -8,13 +8,17 @@ import {Route, Link} from 'react-router-dom';
 class BooksApp extends React.Component {
     state = {
         shelves: ['currentlyReading', 'read', 'wantToRead'],
-        data: []
+        data: [],
+        loaded: false
     }
 
     componentDidMount() {
         BooksAPI.getAll()
             .then(books => {
-                this.setState({data: books})
+                this.setState({
+                    data: books,
+                    loaded: true
+                })
                 /*console.log(this.state.data)*/
             })
     }
@@ -27,7 +31,7 @@ class BooksApp extends React.Component {
     }
 
     render() {
-        const {shelves} = this.state;
+        const {shelves, loaded} = this.state;
         let description = '';
         return (
             <div className="app">
@@ -38,7 +42,7 @@ class BooksApp extends React.Component {
                         </div>
                         <div className="list-books-content">
                             <div>
-                                {shelves.map(shelf => {
+                                {loaded? shelves.map(shelf => {
                                     if (shelf === 'currentlyReading') {
                                         description = 'Currently Reading'
                                     } else if (shelf === 'read') {
@@ -51,7 +55,7 @@ class BooksApp extends React.Component {
                                                       books={this.filterShelf(shelf)}
                                                       key={shelf} />
 
-                                })}
+                                }):<p>Carregando...</p>}
                             </div>
                         </div>
                     </div>
