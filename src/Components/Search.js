@@ -8,14 +8,6 @@ class Search extends Component {
         books: []
     }
 
-    componentDidMount() {
-        BooksAPI.getAll()
-            .then(books => {
-                this.setState({
-                    books
-                })
-            })
-    }
 
     onSearch = evt => {
         if (evt.target.value === '') return false;
