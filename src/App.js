@@ -4,8 +4,13 @@ import "./App.css";
 import Bookshelf from "./Components/Bookshelf";
 import Search from "./Components/Search";
 import { Route, Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class BooksApp extends React.Component {
+  static propTypes = {
+    onUpdateBookShelf: PropTypes.func.isRequired
+  };
+
   state = {
     shelves: ["currentlyReading", "read", "wantToRead"],
     data: [],
@@ -29,6 +34,7 @@ class BooksApp extends React.Component {
   }
 
   onUpdateBookShelf = (bookshelf, book) => {
+    console.log(book.shelf);
     if (this.state.data) {
       BooksAPI.update(bookshelf, book).then(() => {
         book.shelf = bookshelf;
@@ -83,12 +89,20 @@ class BooksApp extends React.Component {
             </div>
           )}
         />
-        <Route path="/search" component={Search} />
         <div className="open-search">
           <Link to="/search" className="open-search">
             <button>Add a book</button>
           </Link>
         </div>
+        <Route
+          path="/search"
+          render={() => (
+            <Search
+              books={this.state.data}
+              onUpdateBookShelf={this.onUpdateBookShelf}
+            />
+          )}
+        />
       </div>
     );
   }

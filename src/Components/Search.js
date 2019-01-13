@@ -1,44 +1,53 @@
-import React, {Component} from 'react';
-import * as BooksAPI from '../BooksAPI';
-import {Link} from 'react-router-dom';
+import React, { Component } from "react";
+import * as BooksAPI from "../BooksAPI";
+import { Link } from "react-router-dom";
 import ListBooks from "./ListBooks";
+import PropTypes from "prop-types";
 
 class Search extends Component {
-    state = {
-        books: []
-    }
+  static propTypes = {
+    onUpdateBookShelf: PropTypes.func.isRequired
+  };
 
+  state = {
+    books: []
+  };
 
-    onSearch = evt => {
-        if (evt.target.value === '') return false;
-        BooksAPI.search(evt.target.value)
-            .then(response =>
-                this.setState( {
-                    books: response
-                })
-            ).catch(err => console.log(err))
-    }
+  onSearch = evt => {
+    if (evt.target.value === "") return false;
+    BooksAPI.search(evt.target.value)
+      .then(response =>
+        this.setState({
+          books: response
+        })
+      )
+      .catch(err => console.log(err));
+  };
 
-    render() {
-        return (
-            <div className="search-books">
-                <div className="search-books-bar">
-                    <Link to='/' className='close-search'>
-                        Close
-                    </Link>
-                    <div className="search-books-input-wrapper">
-                        <input type="text"
-                               placeholder="Search by title or author"
-                               onChange={this.onSearch}
-                        />
-                    </div>
-                </div>
-                <div className="search-books-results">
-                   <ListBooks books={this.state.books} />
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="search-books">
+        <div className="search-books-bar">
+          <Link to="/" className="close-search">
+            Close
+          </Link>
+          <div className="search-books-input-wrapper">
+            <input
+              type="text"
+              placeholder="Search by title or author"
+              onChange={this.onSearch}
+            />
+          </div>
+        </div>
+        <div className="search-books-results">
+          <ListBooks
+            books={this.state.books}
+            onUpdateBookShelf={this.props.onUpdateBookShelf}
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Search;

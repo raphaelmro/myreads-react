@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import Book from './Book';
+import PropTypes from "prop-types";
 
 class ListBooks extends Component {
+    static propTypes = {
+        onUpdateBookShelf: PropTypes.func.isRequired
+    }
 
     onUpdateBookShelf = (bookshelf, book) => {
         this.props.onUpdateBookShelf(bookshelf, book)
