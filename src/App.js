@@ -5,6 +5,8 @@ import Bookshelf from "./Components/Bookshelf";
 import Search from "./Components/Search";
 import { Route, Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class BooksApp extends React.Component {
   static propTypes = {
@@ -44,6 +46,7 @@ class BooksApp extends React.Component {
             .concat([book])
         }));
       });
+      toast.success('📚 Book updated!')
     }
   };
 
@@ -59,6 +62,7 @@ class BooksApp extends React.Component {
             <div className="list-books">
               <div className="list-books-title">
                 <h1>MyReads</h1>
+                <ToastContainer />
               </div>
               <div className="list-books-content">
                 <div>
@@ -71,7 +75,6 @@ class BooksApp extends React.Component {
                       } else if (shelf === "wantToRead") {
                         description = "Want To Read";
                       }
-
                       return (
                         <Bookshelf
                           shelf={description}
