@@ -14,7 +14,6 @@ class BooksApp extends React.Component {
   };
 
   state = {
-    shelves: ["currentlyReading", "read", "wantToRead"],
     data: [],
     loaded: false
   };
@@ -51,7 +50,8 @@ class BooksApp extends React.Component {
   };
 
   render() {
-    const { shelves, loaded } = this.state;
+    const { loaded } = this.state;
+    const shelves = ["currentlyReading", "read", "wantToRead"]
     let description = "";
     return (
       <div className="app">
