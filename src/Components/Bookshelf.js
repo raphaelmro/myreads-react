@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import ListBooks from "./ListBooks";
 
 class Bookshelf extends Component {
-  onUpdateBookShelf = (bookshelf, bookId) => {
-    this.props.onUpdateBookShelf(bookshelf, bookId)
+  onUpdateBookShelf = (bookshelf, book) => {
+    this.props.onUpdateBookShelf(bookshelf, book)
   };
 
   render() {

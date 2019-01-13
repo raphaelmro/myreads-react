@@ -3,8 +3,8 @@ import Book from './Book';
 
 class ListBooks extends Component {
 
-    onUpdateBookShelf = (bookshelf, bookId) => {
-        this.props.onUpdateBookShelf(bookshelf, bookId)
+    onUpdateBookShelf = (bookshelf, book) => {
+        this.props.onUpdateBookShelf(bookshelf, book)
     }
 
     render() {
