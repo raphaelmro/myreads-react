@@ -1,19 +1,19 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class Book extends Component {
   static propTypes = {
-      onUpdateBookShelf: PropTypes.func.isRequired
-  }
+    onUpdateBookShelf: PropTypes.func.isRequired
+  };
 
   onUpdateBookShelf = evt => {
     this.props.onUpdateBookShelf(evt.target.value, this.props.book);
   };
   render() {
     const { shelf, title } = this.props.book;
-      console.log(`Book: ${title} is on ${shelf}`)
+    console.log(`Book: ${title} is on ${shelf}`);
 
-      return (
+    return (
       <div className="book">
         <div className="book-top">
           <div
@@ -26,7 +26,10 @@ class Book extends Component {
           />
 
           <div className="book-shelf-changer">
-            <select value={shelf === undefined ? 'none' : shelf} onChange={this.onUpdateBookShelf}>
+            <select
+              value={shelf === undefined ? "none" : shelf}
+              onChange={this.onUpdateBookShelf}
+            >
               <option value="move" disabled>
                 Move to...
               </option>

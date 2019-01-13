@@ -3,7 +3,7 @@ import * as BooksAPI from "../BooksAPI";
 import { Link } from "react-router-dom";
 import ListBooks from "./ListBooks";
 import PropTypes from "prop-types";
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer } from "react-toastify";
 
 class Search extends Component {
   static propTypes = {

@@ -5,8 +5,8 @@ import Bookshelf from "./Components/Bookshelf";
 import Search from "./Components/Search";
 import { Route, Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class BooksApp extends React.Component {
   static propTypes = {
@@ -46,7 +46,7 @@ class BooksApp extends React.Component {
             .concat([book])
         }));
       });
-      toast.success('📚 Book updated!')
+      toast.success(`📚 Book '${book.title}' updated!`);
     }
   };
 
