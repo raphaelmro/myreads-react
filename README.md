@@ -18,10 +18,10 @@ As well you can **Search** new books and add into your shelves!
 `npm install`
 3. Run **MyReads**! `npm start`
 
-##Contributing
+## Contributing
 The project is open to receive new suggestions and pull requests
 
-##License
+## License
 The MIT License
 
 Copyright (c) 2010-2018 Google, Inc.
