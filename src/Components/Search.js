@@ -7,7 +7,8 @@ import { ToastContainer } from "react-toastify";
 
 class Search extends Component {
   static propTypes = {
-    onUpdateBookShelf: PropTypes.func.isRequired
+    onUpdateBookShelf: PropTypes.func.isRequired,
+    books: PropTypes.array
   };
 
   state = {
@@ -17,11 +18,14 @@ class Search extends Component {
   onSearch = evt => {
     if (evt.target.value === "") return false;
     BooksAPI.search(evt.target.value)
-      .then(response =>
-        this.setState({
-          books: response
-        })
-      )
+      .then(response => {
+        response.map(book =>
+          this.props.books
+            .filter(b => b.id === book.id)
+            .map(b => (book.shelf = b.shelf))
+        );
+        this.setState({ books: response });
+      })
       .catch(err => console.log(err));
   };
 

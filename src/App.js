@@ -4,15 +4,10 @@ import "./App.css";
 import Bookshelf from "./Components/Bookshelf";
 import Search from "./Components/Search";
 import { Route, Link } from "react-router-dom";
-import PropTypes from "prop-types";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 class BooksApp extends React.Component {
-  static propTypes = {
-    onUpdateBookShelf: PropTypes.func.isRequired
-  };
-
   state = {
     data: [],
     loaded: false
@@ -35,7 +30,6 @@ class BooksApp extends React.Component {
   }
 
   onUpdateBookShelf = (bookshelf, book) => {
-    console.log(book.shelf);
     if (this.state.data) {
       BooksAPI.update(bookshelf, book).then(() => {
         book.shelf = bookshelf;
@@ -51,7 +45,7 @@ class BooksApp extends React.Component {
 
   render() {
     const { loaded } = this.state;
-    const shelves = ["currentlyReading", "read", "wantToRead"]
+    const shelves = ["currentlyReading", "read", "wantToRead"];
     let description = "";
     return (
       <div className="app">

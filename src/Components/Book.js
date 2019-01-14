@@ -10,9 +10,7 @@ class Book extends Component {
     this.props.onUpdateBookShelf(evt.target.value, this.props.book);
   };
   render() {
-    const { shelf, title } = this.props.book;
-    console.log(`Book: ${title} is on ${shelf}`);
-
+    const { shelf } = this.props.book;
     return (
       <div className="book">
         <div className="book-top">

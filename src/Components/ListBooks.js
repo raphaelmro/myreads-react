@@ -30,6 +30,7 @@ class ListBooks extends Component {
                     author={book.authors}
                     key={book.id}
                     book={book}
+                    shelf={book.shelf}
                     onUpdateBookShelf={this.onUpdateBookShelf}
                   />
                 </li>
