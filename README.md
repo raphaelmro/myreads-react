@@ -18,13 +18,6 @@ As well you can **Search** new books and add into your shelves!
 `npm install`
 3. Run **MyReads**! `npm start`
 
-## Screenshots
--   Main page
-![Screen Shot 2019-01-14 at 20.21.36](/Users/raphaelonofre/Desktop/Screen Shot 2019-01-14 at 20.21.36.JPG)
--   Search page
-![Screen Shot 2019-01-14 at 20.21.57](/Users/raphaelonofre/Desktop/Screen Shot 2019-01-14 at 20.21.57.JPG)
-
-
 ##Contributing
 The project is open to receive new suggestions and pull requests
 
