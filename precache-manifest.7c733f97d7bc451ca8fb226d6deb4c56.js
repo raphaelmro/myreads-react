@@ -16,15 +16,15 @@ self.__precacheManifest = [
     "url": "/myreads-react/static/js/runtime~main.3923c7c4.js"
   },
   {
-    "revision": "ea234665ca196b466258",
-    "url": "/myreads-react/static/js/main.ea234665.chunk.js"
+    "revision": "c8227f10ed26365494ab",
+    "url": "/myreads-react/static/js/main.c8227f10.chunk.js"
   },
   {
     "revision": "08608d1f9443afdfe1e7",
     "url": "/myreads-react/static/js/1.08608d1f.chunk.js"
   },
   {
-    "revision": "ea234665ca196b466258",
+    "revision": "c8227f10ed26365494ab",
     "url": "/myreads-react/static/css/main.d902aa8e.chunk.css"
   },
   {
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/myreads-react/static/css/1.6640775d.chunk.css"
   },
   {
-    "revision": "1f3598413d221e767f1c2837a316b43c",
+    "revision": "bf95fcc2d972cb4bcbdd7e21a08d96d3",
     "url": "/myreads-react/index.html"
   }
 ];
