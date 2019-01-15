@@ -7,7 +7,7 @@ class Book extends Component {
   };
 
   onUpdateBookShelf = evt => {
-    this.props.onUpdateBookShelf(evt.target.value, this.props.book);
+    this.props.onUpdateBookShelf(this.props.book, evt.target.value);
   };
   render() {
     const { shelf } = this.props.book;

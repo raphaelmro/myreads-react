@@ -7,8 +7,8 @@ class ListBooks extends Component {
     onUpdateBookShelf: PropTypes.func.isRequired
   };
 
-  onUpdateBookShelf = (bookshelf, book) => {
-    this.props.onUpdateBookShelf(bookshelf, book);
+  onUpdateBookShelf = (book, bookshelf) => {
+    this.props.onUpdateBookShelf(book, bookshelf);
   };
 
   render() {

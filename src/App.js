@@ -9,32 +9,28 @@ import "react-toastify/dist/ReactToastify.css";
 
 class BooksApp extends React.Component {
   state = {
-    data: [],
+    books: [],
     loaded: false
   };
 
-  componentDidMount() {
-    BooksAPI.getAll().then(books => {
-      this.setState({
-        data: books,
-        loaded: true
-      });
-    });
+  async componentDidMount() {
+    const books = await BooksAPI.getAll();
+    this.setState({ books, loaded: true });
   }
 
   filterShelf(shelf) {
-    const { data } = this.state;
-    return data.filter(book => {
+    const { books } = this.state;
+    return books.filter(book => {
       return book.shelf === shelf;
     });
   }
 
-  onUpdateBookShelf = (bookshelf, book) => {
-    if (this.state.data) {
-      BooksAPI.update(bookshelf, book).then(() => {
+  onUpdateBookShelf = (book, bookshelf) => {
+    if (this.state.books) {
+      BooksAPI.update(book, bookshelf).then(() => {
         book.shelf = bookshelf;
         this.setState(currState => ({
-          data: currState.data
+          books: currState.books
             .filter(myBook => myBook.id !== book.id)
             .concat([book])
         }));
@@ -95,7 +91,7 @@ class BooksApp extends React.Component {
           path="/search"
           render={() => (
             <Search
-              books={this.state.data}
+              books={this.state.books}
               onUpdateBookShelf={this.onUpdateBookShelf}
             />
           )}
