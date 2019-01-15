@@ -45,9 +45,7 @@ class BooksApp extends React.Component {
     let description = "";
     return (
       <div className="app">
-        <Route
-          exact
-          path={process.env.PUBLIC_URL + "/"}
+        <Route exact path={process.env.PUBLIC_URL + "/"}
           render={() => (
             <div className="list-books">
               <div className="list-books-title">
@@ -87,8 +85,7 @@ class BooksApp extends React.Component {
             <button>Add a book</button>
           </Link>
         </div>
-        <Route
-          path={process.env.PUBLIC_URL + "/search"}
+        <Route exact path={process.env.PUBLIC_URL + "/search"}
           render={() => (
             <Search
               books={this.state.books}
