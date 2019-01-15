@@ -7,6 +7,9 @@
 
 As well you can **Search** new books and add into your shelves!
 
+## Demo
+https://raphaelmro.github.io/myreads-react/
+
 ## Requirements
 -   NodeJS
 -   React
