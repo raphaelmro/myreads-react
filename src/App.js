@@ -81,7 +81,7 @@ class BooksApp extends React.Component {
           )}
         />
         <div className="open-search">
-          <Link to="/search" className="open-search">
+          <Link to={process.env.PUBLIC_URL + "/search"} className="open-search">
             <button>Add a book</button>
           </Link>
         </div>
