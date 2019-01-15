@@ -88,7 +88,7 @@ class BooksApp extends React.Component {
           </Link>
         </div>
         <Route
-          path="/search"
+          path={process.env.PUBLIC_URL + "/search"}
           render={() => (
             <Search
               books={this.state.books}
