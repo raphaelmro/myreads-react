@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import * as BooksAPI from "../BooksAPI";
 import { Link } from "react-router-dom";
 import ListBooks from "./ListBooks";
-import PropTypes from "prop-types";
+import { func, array } from "prop-types";
 import { ToastContainer } from "react-toastify";
 
 class Search extends Component {
   static propTypes = {
-    onUpdateBookShelf: PropTypes.func.isRequired,
-    books: PropTypes.array
+    onUpdateBookShelf: func.isRequired,
+    books: array
   };
 
   state = {

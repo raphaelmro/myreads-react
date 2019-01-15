@@ -1,12 +1,18 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import { func, shape, string, array } from "prop-types";
 
 class Book extends Component {
   static propTypes = {
-    onUpdateBookShelf: PropTypes.func.isRequired
+    onUpdateBookShelf: func.isRequired,
+    book: shape({
+        shelf: string,
+    }),
+    title: string,
+    authors: array
   };
 
   onUpdateBookShelf = evt => {
+    evt.preventDefault();
     this.props.onUpdateBookShelf(this.props.book, evt.target.value);
   };
   render() {

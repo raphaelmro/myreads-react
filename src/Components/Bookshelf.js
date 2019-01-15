@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import ListBooks from "./ListBooks";
-import PropTypes from "prop-types";
+import { func, string } from "prop-types";
 
 class Bookshelf extends Component {
   static propTypes = {
-    onUpdateBookShelf: PropTypes.func.isRequired,
+    onUpdateBookShelf: func.isRequired,
+    shelf: string
   };
 
   onUpdateBookShelf = (book, bookshelf) => {
