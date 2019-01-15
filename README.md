@@ -2,7 +2,7 @@
 
 **MyReads Project** is an app to help you to mantain your books' library, where you can set:
 -   Books you just read;
--   Books that you want to read asap;
+-   Books that you want to read;
 -   Books that you are currently reading;
 
 As well you can **Search** new books and add into your shelves!
