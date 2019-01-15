@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ListBooks from "./ListBooks";
 import { func, array } from "prop-types";
 import { ToastContainer } from "react-toastify";
-import { Throttle } from 'react-throttle'
+import { Throttle } from "react-throttle";
 
 class Search extends Component {
   static propTypes = {
@@ -40,11 +40,11 @@ class Search extends Component {
           <div className="search-books-input-wrapper">
             <ToastContainer />
             <Throttle time="500" handler="onChange">
-                <input
-                  type="text"
-                  placeholder="Search by title or author"
-                  onChange={this.onSearch}
-                />
+              <input
+                type="text"
+                placeholder="Search by title or author"
+                onChange={this.onSearch}
+              />
             </Throttle>
           </div>
         </div>

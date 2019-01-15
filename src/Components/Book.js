@@ -5,7 +5,7 @@ class Book extends Component {
   static propTypes = {
     onUpdateBookShelf: func.isRequired,
     book: shape({
-        shelf: string,
+      shelf: string
     }),
     title: string,
     authors: array
